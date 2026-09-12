@@ -1,0 +1,33 @@
+{
+  "provenance": "Phase 5 (non-3D) preview content. Floor count (5) and flats-per-floor (4) are derived from Subhadra Residency's supplied Total Flats (20), not invented independently. Flat numbers 101/302/401 and their owners/purchase dates are the real seed records from the Customers page (Section 36) — every other flat has no real record, so it is marked 'available' rather than guessing an occupant. The '3 BHK' configuration is the one example given in the brief (Section 13, Flat 302) applied to the whole building as its most likely uniform unit type; this is an inference, not a supplied fact, and should be verified before launch. Ground/1st/2nd/3rd/4th floor labels and the decorative Terrace level match the brief's Section 11 example. This explorer is intentionally NOT a 3D model — it is a CSS-drawn architectural schematic (floor stack + flat grid), per instruction not to build the 3D building experience yet. Replace with Firestore per Section 14's projects/floors/flats structure in its scheduled phase.",
+  "hasTerrace": true,
+  "floors": [
+    { "id": "fourth", "label": "4th Floor", "flats": ["401", "402", "403", "404"] },
+    { "id": "third", "label": "3rd Floor", "flats": ["301", "302", "303", "304"] },
+    { "id": "second", "label": "2nd Floor", "flats": ["201", "202", "203", "204"] },
+    { "id": "first", "label": "1st Floor", "flats": ["101", "102", "103", "104"] },
+    { "id": "ground", "label": "Ground Floor", "flats": ["G01", "G02", "G03", "G04"] }
+  ],
+  "flats": {
+    "101": { "floor": "1st Floor", "bhk": "3 BHK", "status": "occupied", "owner": "Anita Devi", "purchasedOn": "05 Mar 2023" },
+    "102": { "floor": "1st Floor", "bhk": "3 BHK", "status": "available" },
+    "103": { "floor": "1st Floor", "bhk": "3 BHK", "status": "available" },
+    "104": { "floor": "1st Floor", "bhk": "3 BHK", "status": "available" },
+    "201": { "floor": "2nd Floor", "bhk": "3 BHK", "status": "available" },
+    "202": { "floor": "2nd Floor", "bhk": "3 BHK", "status": "available" },
+    "203": { "floor": "2nd Floor", "bhk": "3 BHK", "status": "available" },
+    "204": { "floor": "2nd Floor", "bhk": "3 BHK", "status": "available" },
+    "301": { "floor": "3rd Floor", "bhk": "3 BHK", "status": "available" },
+    "302": { "floor": "3rd Floor", "bhk": "3 BHK", "status": "occupied", "owner": "Ramesh Babu", "purchasedOn": "12 Jan 2023" },
+    "303": { "floor": "3rd Floor", "bhk": "3 BHK", "status": "available" },
+    "304": { "floor": "3rd Floor", "bhk": "3 BHK", "status": "available" },
+    "401": { "floor": "4th Floor", "bhk": "3 BHK", "status": "occupied", "owner": "Suresh Kumar", "purchasedOn": "18 Feb 2023" },
+    "402": { "floor": "4th Floor", "bhk": "3 BHK", "status": "available" },
+    "403": { "floor": "4th Floor", "bhk": "3 BHK", "status": "available" },
+    "404": { "floor": "4th Floor", "bhk": "3 BHK", "status": "available" },
+    "G01": { "floor": "Ground Floor", "bhk": "3 BHK", "status": "available" },
+    "G02": { "floor": "Ground Floor", "bhk": "3 BHK", "status": "available" },
+    "G03": { "floor": "Ground Floor", "bhk": "3 BHK", "status": "available" },
+    "G04": { "floor": "Ground Floor", "bhk": "3 BHK", "status": "available" }
+  }
+}

@@ -1,38 +1,43 @@
-# DATLA INFRA — Phase 4
+# DATLA INFRA — Phase 5 (non-3D building explorer)
 
-Real project detail pages, replacing the Phase 3 reserved placeholder at `/projects/[slug]`. Everything from Phases 1–3 (header/footer, homepage, About/Projects/Communities/Customers/Media/Contact) is unchanged.
+Building → Floor → Flat exploration, exactly as laid out in the brief's Section 11–13 UX flow, but built as a **CSS-drawn architectural schematic instead of a 3D model** — per your explicit instruction not to touch the 3D building experience yet. Everything from Phases 1–4 is unchanged.
 
 ## What's new this phase
 
-- **`/projects/[slug]`** is now a full detail page per project (Section 8 of the brief): a photo hero with the project name and status, an "About This Project" description, an amenities list, a 3-image gallery, and a "Project Facts" card (Status / Location / Total Flats / Project Area / Completed On — only the fields that were actually supplied for that project are shown; Sree Nivas Heights and Datla Enclave correctly omit the flats/area/completion fields that were never given rather than showing blanks or invented numbers).
-- An **"Explore 3D Model"** button is present on every project's fact card, but disabled with a "coming in a later phase" note. The interactive building/floor/flat explorer itself has **not** been touched, per your explicit instruction — this button is inert scaffolding, not a real feature.
-- An **"Enquire About This Project"** button links to `/contact`, satisfying the brief's enquiry-CTA requirement for this page.
-- Unknown slugs still 404 (unchanged from Phase 3).
+- **`/projects/[slug]/explore`** — a new route with:
+  - A **floor selector** (Terrace decorative + 4th/3rd/2nd/1st/Ground Floor) as pill buttons.
+  - A **building elevation** — a vertical stack of CSS bars representing each floor. Selecting a floor highlights its bar in gold and dims the others, echoing the brief's "isolate the selected floor" behavior without any WebGL/Three.js.
+  - A **flat grid** for the selected floor, each tile color-coded by status dot (green = Available, grey = Occupied, gold = Booked), matching the reference's legend.
+  - A **flat detail panel** on selecting a flat — "3rd Floor · Flat 302", "3 BHK", Status/Owner/Purchased On, and Back to Floor / Back to Building / Enquire About This Flat actions. This reproduces the reference image's flat detail card almost exactly.
+- The **"Explore 3D Model"** button on the project detail page is now labeled **"Explore Building"** (see "why the rename" below) and is a real, working link for projects that have explorer data.
+- **Scoping decision:** only **Subhadra Residency** got real floor/flat data. Sree Nivas Heights and Datla Enclave are Under Construction / Upcoming, so their floor plans aren't real yet — inventing a 50-unit layout for Sree Nivas Heights would mean fabricating data with zero basis. Both their project-detail buttons and their `/explore` URLs (if visited directly) show an honest "floor plans aren't finalized yet" message instead of fake data. This can be revisited once those projects' real unit plans exist.
 
-## Content
+## Where Subhadra Residency's flat data came from
 
-Each project's `description` paragraph was added to `data/preview-projects.json`. Per that file's `provenance` field: names/status/flats/location/area/completion dates are transcribed from the brief; the description copy is written in-brand since the brief didn't supply project-specific narrative text, matching the same approach already used for About's story/values copy in Phase 3.
+Not invented: 5 floors × 4 flats = 20 total flats matches the already-supplied "Total Flats: 20". The flat numbers 101, 302, and 401 — and their occupied status, owner names, and purchase dates — are pulled directly from the real Customers page seed records (Ramesh Babu/302, Suresh Kumar/401, Anita Devi/101); every other flat has no real record, so it's marked **available** rather than assigning a fake owner. This was verified programmatically: a script cross-checked every "occupied" flat in the explorer data against the Customers JSON before this was built, confirming an exact match.
 
-Amenities on the detail page reuse the same 6 Communities features (Children's Play Area, Landscaped Gardens, etc.) via `getCommunitiesContent()` rather than duplicating that list into project data — single source of truth, consistent with the `PageHero`/`CtaBand`/`StatStrip` reuse pattern from Phase 3.
+One inference, clearly flagged in the data file's `provenance`: the brief's Section 13 example gives Flat 302 as "3 BHK" — that's the only configuration ever specified, so it was applied as the building's uniform unit type. That's a reasonable extrapolation from real data, not a fabrication, but it's flagged for you to confirm before launch.
 
-## Fixed while building this phase
+## Why "Explore Building" instead of "Explore 3D Model"
 
-The disabled "Explore 3D Model" button was initially unreadable — it used the `light-outline` button style (navy text, meant for light/cream backgrounds) inside the dark-navy "Project Facts" card, making the text and icon effectively invisible against the matching dark background. Caught during visual review and fixed by switching to `outline-button` (the light-text variant already used elsewhere on dark backgrounds, e.g. the header's nav). Confirmed visually after the fix — text and icon are now clearly legible.
+The button now does something real — it just isn't 3D. Keeping the literal words "3D Model" on a feature that is deliberately a 2D/CSS schematic would be a mislabel. The explorer page itself also states upfront: "An interactive architectural schematic — floor and unit layout, not a photorealistic 3D render." When the real Phase 6+ 3D explorer is eventually built (on your separate plan), the label and route can change without disrupting anything else, since this is an isolated route (`/projects/[slug]/explore`) and an isolated data adapter (`lib/explorer-content.ts`).
+
+## Architecture note for the future 3D phase
+
+`getBuildingExplorer(slug)` in `lib/explorer-content.ts` is the single seam where a real Firestore-backed 3D data source would plug in later, matching the brief's Section 14 projects/floors/flats shape. The `BuildingExplorer` component's props (`floors`, `flats` keyed by flat number with `status`/`owner`/`purchasedOn`/`bhk`) are shaped so a future 3D renderer could consume the same data without a schema rewrite — this phase does not paint you into a corner for the real 3D work later.
 
 ## Review
 
-Run `npm run dev` (or double-click `Start Preview.cmd`), then open any project's "View Details" from `/projects` — try all three (Subhadra Residency has the full fact set; Sree Nivas Heights and Datla Enclave show only Status/Location, correctly). Confirm the "Explore 3D Model" button is visibly labeled but disabled, and "Enquire About This Project" goes to `/contact`.
+Run `npm run dev` (or double-click `Start Preview.cmd`), open `/projects/subhadra-residency`, click "Explore Building", pick a floor, click flat 302 (should show Ramesh Babu, Occupied, 12 Jan 2023) or flat 101 (Anita Devi, Occupied, 05 Mar 2023). Try "Back to Floor" and "Back to Building". Then check `/projects/sree-nivas-heights` — its explore button should be disabled with the "not finalized" note.
 
 ## Stop point
 
-STOP after Phase 4 review. Do not start Phase 5 (interactive 3D explorer) without approval — the building/floor/flat model is still explicitly on hold for your separate plan.
-
-Stack unchanged: React, TypeScript, Next-compatible Vinext/Vite starter, clean CSS. No Firebase, authentication, admin, or building explorer has been implemented yet.
+STOP after Phase 5 review. The real 3D building/floor/flat experience (Three.js/GLB or otherwise) is still on hold for your separate plan — nothing 3D was built or touched this phase.
 
 ## Verification completed
 
-Production build and `tsc --noEmit` both pass with no errors. All three project detail routes return 200 with correct per-project content; an unknown slug still 404s. Every image referenced by each detail page (project photo + reused gallery images) returns 200 — no broken images, including the `hero`/`interior` wide-only assets used in the gallery. Checked at 375px mobile width with zero horizontal overflow. The `light-outline`/`outline-button` contrast bug above was the only defect found; a codebase-wide check confirmed no other component misuses `light-outline` on a dark background.
+Production build and `tsc --noEmit` both pass with no errors. All three `/projects/[slug]/explore` routes return 200 (Subhadra Residency shows the real explorer; the other two show the honest fallback); an unknown slug's explore URL 404s. Checked at 375px mobile — floor pills wrap, the elevation stack and flat grid both reflow correctly, and the detail-panel action buttons stack without overflow. Every occupied flat shown in the explorer was cross-checked programmatically against the real Customers seed data before and after building the UI.
 
 ## Hosting
 
-Live at **https://site-creator-vinext-starter.coderrorsolutions.workers.dev** (Cloudflare Workers — this project's build targets Workers, not Vercel; see git history for why). Source is on GitHub at [venkatnarayana7/DaltaInfra](https://github.com/venkatnarayana7/DaltaInfra).
+Live at **https://site-creator-vinext-starter.coderrorsolutions.workers.dev** (Cloudflare Workers). Source on GitHub at [venkatnarayana7/DaltaInfra](https://github.com/venkatnarayana7/DaltaInfra). No server-side caching is configured, so the live URL always reflects the latest deploy — a stale view is a browser-cache issue, not a deployment issue (hard refresh with Ctrl+Shift+R).

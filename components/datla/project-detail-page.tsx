@@ -4,9 +4,11 @@ import {Button} from '@/components/ui/button';
 import {ResponsiveImage} from './responsive-image';
 import type {Project} from '@/lib/projects-content';
 import {getCommunitiesContent} from '@/lib/communities-content';
+import {getBuildingExplorer} from '@/lib/explorer-content';
 const featureIcons={play:Blocks,garden:Sprout,security:ShieldCheck,power:BatteryCharging,parking:CarFront,water:Droplets};
 export async function ProjectDetailPage({project}:{project:Project}){
  const communities=await getCommunitiesContent();
+ const explorer=await getBuildingExplorer(project.id);
  const galleryImages=[project.image,'garden','interior'];
  return <main id="main" className="project-detail">
  <section className="project-detail-hero"><ResponsiveImage name={project.image} alt={project.imageAlt} sizes="100vw" className="project-detail-hero-picture"/><div className="container project-detail-hero-copy"><p className="eyebrow">DATLA INFRA · {project.status.toUpperCase()}</p><h1>{project.name}</h1></div></section>
@@ -29,8 +31,8 @@ export async function ProjectDetailPage({project}:{project:Project}){
  {project.area&&<div><dt><Ruler aria-hidden="true"/>Project Area</dt><dd>{project.area}</dd></div>}
  {project.completedOn&&<div><dt><CalendarCheck aria-hidden="true"/>Completed On</dt><dd>{project.completedOn}</dd></div>}
  </dl>
- <Button disabled className="datla-button outline-button project-3d-button" aria-describedby="project-3d-note"><Box aria-hidden="true"/> Explore 3D Model</Button>
- <p id="project-3d-note" className="project-3d-note">The interactive building explorer is coming in a later phase.</p>
+ {explorer?<Button asChild className="datla-button outline-button project-3d-button"><Link href={'/projects/'+project.id+'/explore'}><Box aria-hidden="true"/> Explore Building</Link></Button>:<Button disabled className="datla-button outline-button project-3d-button" aria-describedby="project-3d-note"><Box aria-hidden="true"/> Explore Building</Button>}
+ {!explorer&&<p id="project-3d-note" className="project-3d-note">Floor plans aren&apos;t finalized for this project yet.</p>}
  <Button asChild className="datla-button"><Link href="/contact">Enquire About This Project</Link></Button>
  </aside>
  </div>

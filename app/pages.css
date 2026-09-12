@@ -1,4 +1,4 @@
-/* Phase 3: About, Projects, Communities, Customers, Media, Contact. Phase 4: Project detail. Mobile-first, same breakpoints as home.css. */
+/* Phase 3: About, Projects, Communities, Customers, Media, Contact. Phase 4: Project detail. Phase 5: Building explorer (CSS schematic, no 3D). Mobile-first, same breakpoints as home.css. */
 .page-hero{background:var(--navy);color:var(--cream);padding:44px 0 34px}
 .page-hero .eyebrow{color:#c7ab70;margin-bottom:14px}
 .page-hero h1{font-size:clamp(32px,8vw,46px);line-height:1.2;letter-spacing:-.02em;max-width:16ch}
@@ -118,6 +118,53 @@
 .project-3d-note{font-size:11px;color:#8a9096;margin-top:8px;text-align:center}
 .project-fact-card>.datla-button:last-child{width:100%;margin-top:14px}
 
+/* ---- Building explorer (Phase 5, non-3D) ---- */
+.explorer-page{background:#faf8f3}
+.explorer-topbar{padding:28px 0 20px;position:relative}
+.explorer-back{padding:0;height:auto;min-height:0;color:#8a6a24;gap:6px;margin-bottom:14px}
+.explorer-back svg{width:16px;height:16px}
+.explorer-topbar h1{font-size:clamp(26px,6vw,36px);letter-spacing:-.02em;margin-top:8px}
+.explorer-disclaimer{font-size:12px;color:#6c7378;margin-top:8px;max-width:48ch}
+.explorer-layout{padding-bottom:56px;display:grid;grid-template-columns:1fr;gap:20px}
+.floor-selector{display:flex;flex-wrap:wrap;gap:8px}
+.floor-btn{border:1px solid var(--border);background:#fff;padding:9px 16px;border-radius:20px;font-size:12px;color:#42484b;cursor:pointer}
+.floor-btn.terrace-label{background:transparent;border-style:dashed;color:#9a9488;cursor:default}
+.floor-btn.active{background:var(--navy);border-color:var(--navy);color:var(--gold)}
+.building-elevation{display:flex;flex-direction:column-reverse;gap:4px;padding:4px 0}
+.elevation-row{height:14px;border-radius:2px;background:#d7d1c6;transition:opacity .2s,background .2s}
+.elevation-row.terrace-row{height:8px;background:#e5e0d3;border:1px dashed #c9c2b2}
+.elevation-row.is-active{background:var(--gold-button)}
+.elevation-row.is-dim{opacity:.35}
+.floor-panel{min-height:120px}
+.explorer-hint{font-size:13px;color:#6c7378;padding:20px 0}
+.floor-panel-heading{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.floor-panel-heading h2{font-size:19px}
+.explorer-legend{list-style:none;display:flex;gap:14px;margin:0;padding:0;font-size:11px;color:#565d61}
+.explorer-legend li{display:flex;align-items:center;gap:6px}
+.status-dot{width:9px;height:9px;border-radius:50%;display:inline-block}
+.status-dot.available,.status-pill.status-available{background:#3a8a53}
+.status-dot.occupied,.status-pill.status-occupied{background:#5a6167}
+.status-dot.booked,.status-pill.status-booked{background:#c9932f}
+.flat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.flat-tile{border:1px solid var(--border);background:#fff;padding:16px 8px;border-radius:4px;font-size:13px;font-weight:500;color:#3a4045;cursor:pointer;position:relative;text-align:center}
+.flat-tile:after{content:'';position:absolute;top:8px;right:8px;width:8px;height:8px;border-radius:50%}
+.flat-tile.status-available:after{background:#3a8a53}
+.flat-tile.status-occupied:after{background:#5a6167}
+.flat-tile.status-booked:after{background:#c9932f}
+.flat-tile.selected{border-color:var(--gold-button);box-shadow:0 0 0 1px var(--gold-button)}
+.flat-detail-panel{margin-top:22px;background:var(--navy);color:var(--cream);border-radius:6px;padding:22px}
+.flat-detail-panel .eyebrow{color:#c7ab70;margin-bottom:8px}
+.flat-detail-panel h3{font-size:24px}
+.flat-bhk{font-size:13px;color:#c3cdd3;margin-top:4px}
+.flat-detail-panel dl{margin:18px 0 0}
+.flat-detail-panel dl>div{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid #ffffff14;font-size:13px}
+.flat-detail-panel dt{display:flex;align-items:center;gap:6px;color:#a8b3ba}
+.flat-detail-panel dt svg{width:14px;height:14px}
+.flat-detail-panel dd{margin:0;text-transform:capitalize}
+.status-pill{display:inline-block;padding:3px 10px;border-radius:12px;font-size:11px;color:#fff}
+.flat-detail-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px}
+.flat-detail-actions .datla-button{flex:1;min-width:150px;font-size:12px}
+
 @media(min-width:600px){
  .about-vision-mission{grid-template-columns:1fr 1fr}
  .values-grid{grid-template-columns:repeat(2,1fr)}
@@ -149,4 +196,10 @@
 }
 @media(min-width:768px){
  .project-detail-hero{height:340px}
+ .explorer-layout{grid-template-columns:150px 60px 1fr;gap:28px;align-items:start}
+ .floor-selector{flex-direction:column}
+ .building-elevation{flex-direction:column-reverse}
+ .elevation-row{height:38px}
+ .elevation-row.terrace-row{height:20px}
+ .flat-grid{grid-template-columns:repeat(4,1fr)}
 }
