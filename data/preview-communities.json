@@ -1,0 +1,28 @@
+{
+  "provenance": "Phase 3 preview content. Amenity names match the supplied brief (Sections 4, 6, 17, 36) exactly; the one-line descriptions are written in-brand since none were supplied. Replace this adapter with Firestore in the authorized Firebase phase.",
+  "hero": {
+    "eyebrow": "DATLA INFRA · COMMUNITIES",
+    "heading": ["Communities Designed", "for Better Living"],
+    "support": "We don't just build apartments, we create communities that elevate your lifestyle.",
+    "bannerImage": "garden"
+  },
+  "features": [
+    { "label": "Children's Play Area", "description": "Safe, supervised play spaces where kids can be kids.", "icon": "play" },
+    { "label": "Landscaped Gardens", "description": "Curated green spaces designed for calm mornings and quiet evenings.", "icon": "garden" },
+    { "label": "24/7 Security", "description": "Round-the-clock manned security and CCTV surveillance for complete peace of mind.", "icon": "security" },
+    { "label": "Power Backup", "description": "Uninterrupted power backup across common areas and individual homes.", "icon": "power" },
+    { "label": "Ample Parking", "description": "Dedicated, well-lit parking for residents and visitors alike.", "icon": "parking" },
+    { "label": "Rain Water Harvesting", "description": "Sustainable water management built into every community we design.", "icon": "water" }
+  ],
+  "gallery": [
+    { "image": "subhadra", "alt": "Reference-based architectural illustration of Subhadra Residency" },
+    { "image": "sreenivas", "alt": "Reference-based architectural illustration of Sree Nivas Heights" },
+    { "image": "enclave", "alt": "Reference-based architectural illustration of Datla Enclave" },
+    { "image": "interior", "alt": "Reference-based illustration of a warm, premium interior" }
+  ],
+  "cta": {
+    "heading": "Let's Build Something Great Together",
+    "description": "Have a project in mind? Let's talk about how we can turn your dreams into reality.",
+    "image": "interior"
+  }
+}

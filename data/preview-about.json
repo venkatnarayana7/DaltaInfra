@@ -1,0 +1,41 @@
+{
+  "provenance": "Phase 3 preview content. Story/vision/mission/values copy is written in-brand from the supplied brief (Sections 7 and 36) since no specific narrative text was supplied; verify before launch and replace this adapter with Firestore in the authorized Firebase phase. Leadership/team profiles are intentionally omitted — no real profile data was supplied.",
+  "hero": {
+    "eyebrow": "DATLA INFRA · ABOUT US",
+    "heading": ["A promise,", "poured in concrete."],
+    "support": "Building Trust. Creating Homes. Building Futures. — the philosophy behind every Datla Infra address in Vijayawada."
+  },
+  "story": {
+    "heading": "Our Story",
+    "paragraphs": [
+      "Datla Infra builds premium apartments and thoughtfully designed communities in Vijayawada, Andhra Pradesh. Every project starts with the same question: what would make this a home someone is proud of, not just a building someone bought?",
+      "From Subhadra Residency, our first completed community, to the communities now under construction and on the drawing board, we've stayed close to the fundamentals — honest construction, clear communication, and handing over keys on the date we promised."
+    ],
+    "image": "garden"
+  },
+  "vision": "To be Vijayawada's most trusted name in residential real estate — recognised for craftsmanship, transparency and communities people are proud to call home.",
+  "mission": "To design and deliver premium apartments on time, every time, using honest construction practices and materials built to last for generations.",
+  "values": [
+    { "title": "Trust & Transparency", "description": "Clear timelines, clear pricing, and no surprises from booking to handover.", "icon": "shield" },
+    { "title": "Uncompromising Quality", "description": "Structural safety and finish quality that hold up long after the sale.", "icon": "gem" },
+    { "title": "Timely Delivery", "description": "We plan construction around the date we give you, not the other way around.", "icon": "clock" },
+    { "title": "Customer First", "description": "A single point of contact from enquiry to after-sales support.", "icon": "handshake" }
+  ],
+  "whyChooseUs": [
+    { "title": "Prime Vijayawada Locations", "description": "Every community is chosen for connectivity, safety and everyday convenience.", "icon": "map" },
+    { "title": "Thoughtfully Designed Communities", "description": "Layouts and amenities planned around how families actually live.", "icon": "building" },
+    { "title": "Premium Materials & Craftsmanship", "description": "Structural and finishing materials chosen for durability, not just appearance.", "icon": "hammer" },
+    { "title": "Dedicated After-Sales Support", "description": "Our relationship continues well after you receive your keys.", "icon": "headset" }
+  ],
+  "stats": [
+    { "icon": "building", "value": "2", "label": "Completed Projects" },
+    { "icon": "families", "value": "70+", "label": "Happy Families" },
+    { "icon": "construction", "value": "50+", "label": "Flats Under Construction" },
+    { "icon": "award", "value": "5+", "label": "Years of Excellence" }
+  ],
+  "cta": {
+    "heading": "Let's Build Something Great Together",
+    "description": "Have a project in mind? Let's talk about how we can turn your dreams into reality.",
+    "image": "interior"
+  }
+}

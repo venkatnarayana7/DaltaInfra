@@ -1,0 +1,40 @@
+{
+  "provenance": "Phase 3 preview content transcribed from the supplied design brief (Sections 8 and 36). Replace this adapter with Firestore in the authorized Firebase phase. Only Subhadra Residency's extended details (location/flats/area/completion) were supplied; the other two projects intentionally omit fields that were not given rather than inventing them.",
+  "intro": {
+    "eyebrow": "DATLA INFRA · PROJECTS",
+    "heading": "Our Projects",
+    "support": "Explore our completed, ongoing and upcoming residential communities across Vijayawada."
+  },
+  "projects": [
+    {
+      "id": "subhadra-residency",
+      "name": "Subhadra Residency",
+      "detail": "20 Flats",
+      "status": "Completed",
+      "image": "subhadra",
+      "imageAlt": "Reference-based architectural illustration of Subhadra Residency",
+      "location": "Vijayawada",
+      "totalFlats": 20,
+      "area": "12,000 Sq.ft",
+      "completedOn": "March 2023"
+    },
+    {
+      "id": "sree-nivas-heights",
+      "name": "Sree Nivas Heights",
+      "detail": "50 Flats",
+      "status": "Under Construction",
+      "image": "sreenivas",
+      "imageAlt": "Reference-based architectural illustration of Sree Nivas Heights",
+      "location": "Vijayawada"
+    },
+    {
+      "id": "datla-enclave",
+      "name": "Datla Enclave",
+      "detail": "Premium Community",
+      "status": "Upcoming",
+      "image": "enclave",
+      "imageAlt": "Reference-based architectural illustration of Datla Enclave",
+      "location": "Vijayawada"
+    }
+  ]
+}

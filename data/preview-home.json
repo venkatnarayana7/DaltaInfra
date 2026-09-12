@@ -1,0 +1,101 @@
+{
+  "provenance": "Phase 2 preview content transcribed from the supplied design brief. Replace this adapter with Firestore in the authorized Firebase phase.",
+  "hero": {
+    "lines": [
+      "Building Trust.",
+      "Creating Homes.",
+      "Building Futures."
+    ],
+    "support": [
+      "Premium Apartments.",
+      "Thoughtfully Designed Communities."
+    ],
+    "image": "hero",
+    "videoUrl": null
+  },
+  "metrics": [
+    {
+      "icon": "building",
+      "value": "2",
+      "label": "Completed Projects"
+    },
+    {
+      "icon": "families",
+      "value": "70+",
+      "label": "Happy Families"
+    },
+    {
+      "icon": "construction",
+      "value": "50+",
+      "label": "Flats Under Construction"
+    },
+    {
+      "icon": "award",
+      "value": "5+",
+      "label": "Years of Excellence"
+    }
+  ],
+  "projects": [
+    {
+      "id": "subhadra-residency",
+      "name": "Subhadra Residency",
+      "detail": "20 Flats",
+      "status": "Completed",
+      "image": "subhadra",
+      "imageAlt": "Reference-based architectural illustration of Subhadra Residency"
+    },
+    {
+      "id": "sree-nivas-heights",
+      "name": "Sree Nivas Heights",
+      "detail": "50 Flats",
+      "status": "Under Construction",
+      "image": "sreenivas",
+      "imageAlt": "Reference-based architectural illustration of Sree Nivas Heights"
+    },
+    {
+      "id": "datla-enclave",
+      "name": "Datla Enclave",
+      "detail": "Premium Community",
+      "status": "Upcoming",
+      "image": "enclave",
+      "imageAlt": "Reference-based architectural illustration of Datla Enclave"
+    }
+  ],
+  "communities": {
+    "heading": [
+      "Communities Designed",
+      "for Better Living"
+    ],
+    "description": "We don't just build apartments, we create communities that elevate your lifestyle.",
+    "amenities": [
+      {
+        "icon": "play",
+        "label": "Children's Play Area"
+      },
+      {
+        "icon": "garden",
+        "label": "Landscaped Gardens"
+      },
+      {
+        "icon": "security",
+        "label": "24/7 Security"
+      },
+      {
+        "icon": "power",
+        "label": "Power Backup"
+      },
+      {
+        "icon": "parking",
+        "label": "Ample Parking"
+      },
+      {
+        "icon": "water",
+        "label": "Rain Water Harvesting"
+      }
+    ]
+  },
+  "cta": {
+    "heading": "Let's Build Something Great Together",
+    "description": "Have a project in mind? Let's talk about how we can turn your dreams into reality."
+  }
+}

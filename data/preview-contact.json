@@ -1,0 +1,9 @@
+{
+  "provenance": "Phase 3 preview content transcribed from the supplied brief (Sections 18 and 36). Form submissions are intentionally not wired to a backend yet — Firestore's 'enquiries' collection is a scheduled phase (Section 19).",
+  "heading": "Contact Us",
+  "support": "Have a project in mind? Reach out and our team will get back to you.",
+  "address": "Vijayawada, Andhra Pradesh",
+  "phone": "+91 98765 43210",
+  "email": "info@datlainfra.com",
+  "projectOptions": ["Subhadra Residency", "Sree Nivas Heights", "Datla Enclave", "Not sure yet"]
+}

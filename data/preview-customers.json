@@ -1,0 +1,12 @@
+{
+  "provenance": "Seed/demo records only, transcribed from the supplied reference image (Section 36's text listed 22 Apr 2023 for Mahesh Reddy; the attached screenshot shows 22 Apr 2024 — the image was treated as the source of truth per instruction). These are NOT a live customer database. Replace this adapter with a protected Firestore collection in the authorized Firebase phase; owner photos are intentionally rendered as initials, not fabricated portraits, until real customer photos are supplied and consented.",
+  "heading": "Our Valued Customers",
+  "subtitle": "The Heart of Our Success",
+  "customers": [
+    { "name": "Ramesh Babu", "project": "Subhadra Residency", "flatNo": "302", "purchasedOn": "12 Jan 2023" },
+    { "name": "Suresh Kumar", "project": "Subhadra Residency", "flatNo": "401", "purchasedOn": "18 Feb 2023" },
+    { "name": "Anita Devi", "project": "Subhadra Residency", "flatNo": "101", "purchasedOn": "05 Mar 2023" },
+    { "name": "Mahesh Reddy", "project": "Sree Nivas Heights", "flatNo": "203", "purchasedOn": "22 Apr 2024" },
+    { "name": "Venkatesh", "project": "Sree Nivas Heights", "flatNo": "502", "purchasedOn": "30 May 2024" }
+  ]
+}

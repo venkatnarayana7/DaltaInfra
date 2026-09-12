@@ -1,0 +1,20 @@
+{
+  "provenance": "Phase 3 preview content. Event titles match the supplied brief (Section 16) exactly. Images reuse the same reference-based architectural illustrations from other pages as visual placeholders — real event photography belongs in Firebase Storage in its scheduled phase. YouTube/Instagram destinations were not supplied, so the buttons are present but inert, matching the Phase 1 precedent of not inventing social links.",
+  "heading": "Moments That Matter",
+  "subtitle": "The people and milestones behind Datla Infra",
+  "events": [
+    { "title": "Pongal Celebrations 2024", "image": "garden", "alt": "Reference placeholder image for Pongal Celebrations 2024" },
+    { "title": "Customer Meet 2024", "image": "interior", "alt": "Reference placeholder image for Customer Meet 2024" },
+    { "title": "Foundation Ceremony", "image": "subhadra", "alt": "Reference placeholder image for the Foundation Ceremony" },
+    { "title": "New Year Celebration", "image": "enclave", "alt": "Reference placeholder image for the New Year Celebration" }
+  ],
+  "photos": [
+    { "title": "Subhadra Residency", "image": "subhadra", "alt": "Reference-based architectural illustration of Subhadra Residency" },
+    { "title": "Sree Nivas Heights", "image": "sreenivas", "alt": "Reference-based architectural illustration of Sree Nivas Heights" },
+    { "title": "Datla Enclave", "image": "enclave", "alt": "Reference-based architectural illustration of Datla Enclave" },
+    { "title": "Landscaped Pathways", "image": "garden", "alt": "Reference-based illustration of a landscaped community path" },
+    { "title": "Interiors", "image": "interior", "alt": "Reference-based illustration of a warm, premium interior" },
+    { "title": "Building Futures.", "image": "hero", "alt": "Reference-based illustration of a contemporary apartment building at dusk" }
+  ],
+  "videos": []
+}
