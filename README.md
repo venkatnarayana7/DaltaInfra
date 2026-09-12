@@ -1,43 +1,38 @@
-# DATLA INFRA — Phase 3
+# DATLA INFRA — Phase 4
 
-Six full content pages, built on the Phase 1 design foundation and the Phase 2 homepage: About Us, Projects, Communities, Customers, Media, and Contact. All previously reviewed and approved work (header/footer, homepage) is unchanged except for one stale label fix noted below.
+Real project detail pages, replacing the Phase 3 reserved placeholder at `/projects/[slug]`. Everything from Phases 1–3 (header/footer, homepage, About/Projects/Communities/Customers/Media/Contact) is unchanged.
 
 ## What's new this phase
 
-- **`/about`** — hero, Our Story (with a landscaped-community photo), Vision & Mission cards, a 4-item Values grid, a "Why Choose Datla Infra" section, the same stats strip as the homepage, and a closing CTA.
-- **`/projects`** — the same filter tabs as the homepage (All/Completed/Under Construction/Upcoming) as a full page grid (not a carousel). "View Details" now links to `/projects/[slug]`.
-- **`/projects/[slug]`** — a reserved placeholder per project (matches the existing Phase-1/3 reserved-route pattern) stating the full detail page, gallery and "Explore 3D Model" button are scheduled for **Phase 4** and **Phase 5**. An unknown slug 404s. The building/floor/flat 3D explorer itself has not been touched, as instructed.
-- **`/communities`** — hero, a full-width banner photo, a 6-card feature grid (amenity name + one-line description, versus the homepage's icon-only list), a photo gallery, and a closing CTA.
-- **`/customers`** — "Our Valued Customers" / "The Heart of Our Success" as a dark navy table with initials-avatar chips (not fabricated portrait photos), matching the 5 seed rows. "View All Customers" was intentionally not repeated here since this page already is the full list.
-- **`/media`** — "Moments That Matter" with working Events / Photos / Videos tabs. Events shows the 4 named items from the brief; Videos shows a real empty state (no fake videos invented); the YouTube/Instagram buttons are present but disabled since no real destinations were supplied (same precedent as Phase 1's social links).
-- **`/contact`** — address/phone/email (tel:/mailto: links), a stylised map placeholder (no third-party map embed/API key), and a Name/Phone/Email/Project/Message enquiry form. Submitting shows an inline "thanks — not wired to a backend yet" confirmation; nothing is sent anywhere.
+- **`/projects/[slug]`** is now a full detail page per project (Section 8 of the brief): a photo hero with the project name and status, an "About This Project" description, an amenities list, a 3-image gallery, and a "Project Facts" card (Status / Location / Total Flats / Project Area / Completed On — only the fields that were actually supplied for that project are shown; Sree Nivas Heights and Datla Enclave correctly omit the flats/area/completion fields that were never given rather than showing blanks or invented numbers).
+- An **"Explore 3D Model"** button is present on every project's fact card, but disabled with a "coming in a later phase" note. The interactive building/floor/flat explorer itself has **not** been touched, per your explicit instruction — this button is inert scaffolding, not a real feature.
+- An **"Enquire About This Project"** button links to `/contact`, satisfying the brief's enquiry-CTA requirement for this page.
+- Unknown slugs still 404 (unchanged from Phase 3).
 
-## Content architecture
+## Content
 
-Each page has its own `data/preview-*.json` seed file and a matching `lib/*-content.ts` adapter (same `getXContent()` pattern as Phase 2's `getHomeContent()`), so no component hardcodes copy. Every JSON file's `provenance` field states exactly what was transcribed verbatim from the brief versus written in-brand to fill a gap the brief didn't specify (About's narrative copy; Communities' amenity descriptions), so you can tell at a glance what to double check. Leadership/team profiles were left out of About entirely rather than inventing names or photos, since none were supplied.
+Each project's `description` paragraph was added to `data/preview-projects.json`. Per that file's `provenance` field: names/status/flats/location/area/completion dates are transcribed from the brief; the description copy is written in-brand since the brief didn't supply project-specific narrative text, matching the same approach already used for About's story/values copy in Phase 3.
 
-One data discrepancy: the brief's text (Section 36) lists Mahesh Reddy's purchase date as "22 Apr 2023", but the attached reference screenshot shows "22 Apr 2024" for that row. Per your instruction to treat the image as the source of truth, the Customers page uses **2024**.
-
-## Reusable pieces added
-
-`PageHero` (dark navy inner-page banner), `CtaBand` (the homepage's closing CTA, now reusable), and `StatStrip` (the homepage's 4-number strip, now reusable on About) — extracted so About/Communities don't duplicate the homepage's markup. The old generic `/[section]` catch-all placeholder route has been deleted now that all six pages are real; unknown URLs still 404 via `not-found.tsx`.
+Amenities on the detail page reuse the same 6 Communities features (Children's Play Area, Landscaped Gardens, etc.) via `getCommunitiesContent()` rather than duplicating that list into project data — single source of truth, consistent with the `PageHero`/`CtaBand`/`StatStrip` reuse pattern from Phase 3.
 
 ## Fixed while building this phase
 
-- `ResponsiveImage` used to trust a caller-supplied `wide` flag to pick between the 480/960 and 768/1536 asset sizes. Two new pages (Communities' gallery, Media's photo grid) reused the `hero`/`interior` images without that flag and got 404s, because those two images only exist at 768/1536. Fixed by making the component auto-detect which images are wide-only, so this class of mistake can't happen again for future callers.
-- The `[section]` reserved-route page said "Back to Design Foundation" — stale copy from when `/` was the Phase 1 specimen page. Now says "Back to Home" (this page itself no longer exists, replaced by real routes, but the fix is preserved in git history/behavior).
-- A global `<Toaster/>` + `sonner` `toast()` call for the Contact form didn't actually mount in this project's RSC dev server (the toast portal never appeared in the DOM, confirmed by inspecting the live page). Rather than debug that framework internal, the confirmation is now a simple inline message inside the Contact page component itself — simpler and verified working.
+The disabled "Explore 3D Model" button was initially unreadable — it used the `light-outline` button style (navy text, meant for light/cream backgrounds) inside the dark-navy "Project Facts" card, making the text and icon effectively invisible against the matching dark background. Caught during visual review and fixed by switching to `outline-button` (the light-text variant already used elsewhere on dark backgrounds, e.g. the header's nav). Confirmed visually after the fix — text and icon are now clearly legible.
 
 ## Review
 
-Run `npm run dev` (or double-click `Start Preview.cmd`), then click through `/about`, `/projects` (including the filter tabs and a "View Details" link), `/communities`, `/customers`, `/media` (including the Videos empty state), and `/contact` (fill and submit the form). All six were checked at both desktop and 375px mobile width with no horizontal overflow, and all image requests across all seven routes return 200.
+Run `npm run dev` (or double-click `Start Preview.cmd`), then open any project's "View Details" from `/projects` — try all three (Subhadra Residency has the full fact set; Sree Nivas Heights and Datla Enclave show only Status/Location, correctly). Confirm the "Explore 3D Model" button is visibly labeled but disabled, and "Enquire About This Project" goes to `/contact`.
 
 ## Stop point
 
-STOP after Phase 3 review. Do not start Phase 4 (project detail) or Phase 5 (interactive 3D explorer) without approval — the building/floor/flat model is explicitly on hold for your separate plan.
+STOP after Phase 4 review. Do not start Phase 5 (interactive 3D explorer) without approval — the building/floor/flat model is still explicitly on hold for your separate plan.
 
-Stack unchanged: React, TypeScript, Next-compatible Vinext/Vite starter, clean CSS. No Firebase, authentication, admin, or building explorer has been implemented yet. The site is marked noindex and is not published.
+Stack unchanged: React, TypeScript, Next-compatible Vinext/Vite starter, clean CSS. No Firebase, authentication, admin, or building explorer has been implemented yet.
 
 ## Verification completed
 
-Production build and `tsc --noEmit` both pass with no errors. All seven routes (`/`, `/about`, `/projects`, `/projects/[slug]`, `/communities`, `/customers`, `/media`, `/contact`) return 200 (unknown project slugs and unknown paths correctly 404). Every `/images/*` request referenced by every page's rendered HTML was checked and returns 200 — no broken images. Mobile (375px) was checked on all six new pages via `document.documentElement.scrollWidth` — zero horizontal overflow on any of them. Interactive checks: Projects page filter tabs narrow the grid correctly; Media page's Events/Photos/Videos tabs switch content and Videos shows a real empty state; the Contact form's required-field validation and its inline post-submit confirmation both work.
+Production build and `tsc --noEmit` both pass with no errors. All three project detail routes return 200 with correct per-project content; an unknown slug still 404s. Every image referenced by each detail page (project photo + reused gallery images) returns 200 — no broken images, including the `hero`/`interior` wide-only assets used in the gallery. Checked at 375px mobile width with zero horizontal overflow. The `light-outline`/`outline-button` contrast bug above was the only defect found; a codebase-wide check confirmed no other component misuses `light-outline` on a dark background.
+
+## Hosting
+
+Live at **https://site-creator-vinext-starter.coderrorsolutions.workers.dev** (Cloudflare Workers — this project's build targets Workers, not Vercel; see git history for why). Source is on GitHub at [venkatnarayana7/DaltaInfra](https://github.com/venkatnarayana7/DaltaInfra).

@@ -1,4 +1,4 @@
-/* Phase 3: About, Projects, Communities, Customers, Media, Contact. Mobile-first, same breakpoints as home.css. */
+/* Phase 3: About, Projects, Communities, Customers, Media, Contact. Phase 4: Project detail. Mobile-first, same breakpoints as home.css. */
 .page-hero{background:var(--navy);color:var(--cream);padding:44px 0 34px}
 .page-hero .eyebrow{color:#c7ab70;margin-bottom:14px}
 .page-hero h1{font-size:clamp(32px,8vw,46px);line-height:1.2;letter-spacing:-.02em;max-width:16ch}
@@ -90,6 +90,34 @@
 .contact-confirm{display:flex;align-items:flex-start;gap:9px;margin-top:16px;padding:13px 15px;background:#eaf6ee;border:1px solid #bfe3c9;border-radius:4px;font-size:13px;line-height:1.6;color:#2c5a3a}
 .contact-confirm svg{width:17px;height:17px;stroke:#3a8a53;flex-shrink:0;margin-top:1px}
 
+/* ---- Project detail ---- */
+.project-detail-hero{position:relative;height:280px;overflow:hidden;display:flex;align-items:flex-end}
+.project-detail-hero-picture{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.project-detail-hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#0d1b2a10 0%,#0d1b2a95 85%)}
+.project-detail-hero-copy{padding-bottom:22px;color:var(--cream)}
+.project-detail-hero-copy .eyebrow{color:#e1c05c;margin-bottom:10px}
+.project-detail-hero-copy h1{font-size:clamp(28px,7vw,42px);letter-spacing:-.02em}
+.project-detail-body{padding:36px 0 60px}
+.project-detail-grid{display:grid;grid-template-columns:1fr;gap:34px}
+.project-detail-grid h2{font-size:21px;margin-bottom:12px}
+.project-detail-grid h2:not(:first-child){margin-top:32px}
+.project-detail-description{font-size:14px;line-height:1.85;color:#42484b}
+.amenity-chip-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:10px}
+.amenity-chip-list li{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--border);border-radius:20px;font-size:12px;color:#42484b}
+.amenity-chip-list svg{width:15px;height:15px;stroke:var(--gold-button);flex-shrink:0}
+.project-fact-card{background:var(--navy);color:var(--cream);border-radius:6px;padding:26px 24px;align-self:start}
+.project-fact-card h2{font-size:17px;margin-bottom:16px;color:var(--cream)}
+.project-fact-card dl{margin:0}
+.project-fact-card dl>div{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 0;border-bottom:1px solid #ffffff14;font-size:13px}
+.project-fact-card dl>div:last-of-type{border-bottom:0}
+.project-fact-card dt{display:flex;align-items:center;gap:7px;color:#c7ab70}
+.project-fact-card dt svg{width:15px;height:15px;flex-shrink:0}
+.project-fact-card dd{margin:0;color:var(--cream);text-align:right}
+.project-3d-button{width:100%;margin-top:20px;justify-content:center}
+.project-3d-button:disabled{opacity:.55;cursor:not-allowed}
+.project-3d-note{font-size:11px;color:#8a9096;margin-top:8px;text-align:center}
+.project-fact-card>.datla-button:last-child{width:100%;margin-top:14px}
+
 @media(min-width:600px){
  .about-vision-mission{grid-template-columns:1fr 1fr}
  .values-grid{grid-template-columns:repeat(2,1fr)}
@@ -116,4 +144,9 @@
  .media-grid{grid-template-columns:repeat(4,1fr)}
  .contact-layout{grid-template-columns:.85fr 1.15fr;gap:50px;padding:64px 0 80px}
  .contact-map{margin-top:32px}
+ .project-detail-grid{grid-template-columns:1fr 300px;align-items:start;gap:44px}
+ .project-detail-hero{height:380px}
+}
+@media(min-width:768px){
+ .project-detail-hero{height:340px}
 }

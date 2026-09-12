@@ -1,5 +1,5 @@
 {
-  "provenance": "Phase 3 preview content transcribed from the supplied design brief (Sections 8 and 36). Replace this adapter with Firestore in the authorized Firebase phase. Only Subhadra Residency's extended details (location/flats/area/completion) were supplied; the other two projects intentionally omit fields that were not given rather than inventing them.",
+  "provenance": "Phase 3/4 preview content. Names/status/flats/location/area/completion dates are transcribed from the supplied brief (Sections 8 and 36) — only Subhadra Residency's extended details were supplied, so the other two projects intentionally omit fields that were not given rather than inventing them. Each project's 'description' paragraph is written in-brand since no project-specific copy was supplied; verify before launch. Replace this adapter with Firestore in the authorized Firebase phase.",
   "intro": {
     "eyebrow": "DATLA INFRA · PROJECTS",
     "heading": "Our Projects",
@@ -16,7 +16,8 @@
       "location": "Vijayawada",
       "totalFlats": 20,
       "area": "12,000 Sq.ft",
-      "completedOn": "March 2023"
+      "completedOn": "March 2023",
+      "description": "Subhadra Residency is Datla Infra's first completed community — 20 thoughtfully designed apartments in Vijayawada, handed over on schedule in March 2023. It set the template every later Datla Infra project follows: honest construction, clear communication with owners, and communities built around everyday family life rather than just square footage."
     },
     {
       "id": "sree-nivas-heights",
@@ -25,7 +26,8 @@
       "status": "Under Construction",
       "image": "sreenivas",
       "imageAlt": "Reference-based architectural illustration of Sree Nivas Heights",
-      "location": "Vijayawada"
+      "location": "Vijayawada",
+      "description": "Sree Nivas Heights is currently under construction in Vijayawada — 50 apartments designed around the same principles of quality and community living that shaped Subhadra Residency. Detailed flat-level availability will appear here once construction milestones are confirmed."
     },
     {
       "id": "datla-enclave",
@@ -34,7 +36,8 @@
       "status": "Upcoming",
       "image": "enclave",
       "imageAlt": "Reference-based architectural illustration of Datla Enclave",
-      "location": "Vijayawada"
+      "location": "Vijayawada",
+      "description": "Datla Enclave is Datla Infra's upcoming premium community in Vijayawada, currently in the planning and design stage. Layouts, pricing and booking details will be published here as the project moves toward launch."
     }
   ]
 }

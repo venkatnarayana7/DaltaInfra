@@ -45,3 +45,6 @@ tsconfig.tsbuildinfo
 /.codex/
 /outputs/
 /work/
+
+.vercel
+.env*
