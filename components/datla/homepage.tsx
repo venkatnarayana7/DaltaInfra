@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {Building2,Users,Landmark,Award,Blocks,Sprout,ShieldCheck,BatteryCharging,CarFront,Droplets,Play} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {getHomeContent} from '@/lib/home-content';

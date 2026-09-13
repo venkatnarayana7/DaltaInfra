@@ -1,6 +1,6 @@
 'use client';
 import {useState} from 'react';
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {ArrowLeft,MapPin} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import type {BuildingExplorer as BuildingExplorerData} from '@/lib/explorer-content';

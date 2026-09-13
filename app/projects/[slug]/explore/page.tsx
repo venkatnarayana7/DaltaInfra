@@ -1,5 +1,5 @@
 import {notFound} from 'next/navigation';
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {ArrowLeft} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {getProjectBySlug} from '@/lib/projects-content';

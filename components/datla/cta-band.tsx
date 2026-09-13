@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {Button} from '@/components/ui/button';
 import {ResponsiveImage} from './responsive-image';
 type Props={heading:string;description:string;image:string};

@@ -1,6 +1,6 @@
 'use client';
 import {useMemo,useState} from 'react';
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {Tabs,TabsList,TabsTrigger,TabsContent} from '@/components/ui/tabs';
 import {Button} from '@/components/ui/button';
 import {ResponsiveImage} from './responsive-image';

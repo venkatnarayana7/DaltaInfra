@@ -1,5 +1,5 @@
 'use client';
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {usePathname} from 'next/navigation';
 import {useState} from 'react';
 import {Menu,MapPin,Phone,Mail} from 'lucide-react';

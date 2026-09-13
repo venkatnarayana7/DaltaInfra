@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {MapPin,Building2,Ruler,CalendarCheck,Blocks,Sprout,ShieldCheck,BatteryCharging,CarFront,Droplets,Box} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {ResponsiveImage} from './responsive-image';

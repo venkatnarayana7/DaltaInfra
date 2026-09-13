@@ -1,4 +1,4 @@
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import {ArrowUpRight,Building2,Users,Landmark,Award} from 'lucide-react';
 import {Button} from '@/components/ui/button';
 import {palette,projectSpecimen} from '@/lib/datla';

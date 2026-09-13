@@ -1,6 +1,6 @@
 'use client';
 import {useCallback,useEffect,useMemo,useState} from 'react';
-import Link from 'next/link';
+import Link from '@/components/datla/link';
 import useEmblaCarousel from 'embla-carousel-react';
 import {ChevronLeft,ChevronRight} from 'lucide-react';
 import {Tabs,TabsList,TabsTrigger,TabsContent} from '@/components/ui/tabs';
